@@ -7,7 +7,7 @@
                     <a href="/notes/<%= book['id'] %>" class="img-info"><img src="https://covers.openlibrary.org/b/isbn/<%= book['isbn_number'] %>-M.jpg" alt="" class="book-cover"></a>
                     <div class="text-info">
                         <h3><%= book['book_name'] %>  - <%= book['author'] %></h3>
-                        <p>Date of upload: <%= book['date_added'] %>.</p>
+                        <p>Date of upload: <%= new Date(book['date_added']).toDateString().slice(4) %>.</p>
                         <p>How strongly I recommend it: <%= book['rating'] %>/5</p>
                     </div>
                 </div>
