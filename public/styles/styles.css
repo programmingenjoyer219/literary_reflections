@@ -10,6 +10,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 html {
     scroll-behavior: smooth;
+    background-color: #FEF7DC;
 }
 body {
     display: flex;
@@ -18,13 +19,21 @@ body {
     align-items: center;
 }
 nav {
-    border: 2px solid rgb(48, 44, 44);
+    background-color: #ABC4AA;
     padding: 0.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+a {
+    color: #597E52;
+    text-decoration: none;
+    transition: all 500ms;
+}
+a:hover {
+    text-decoration: underline;
 }
 #website-logo, #up-arrow, #plus-icon {
     height: 40px;
@@ -42,34 +51,52 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 2px solid rgb(48, 44, 44);
+    background-color: #F3DEBA;
     padding: 0.25rem;
+    border-radius: 5px;
 }
 .search-input {
     width: 75px;
     border: 0;
     text-align: center;
+    background-color: #F3DEBA;
 }
 .search-input:focus {
     outline: none;
 }
 #website-intro {
     padding: 0.5rem;
-    border: 2px solid rgb(48, 44, 44);
     margin-top: 0.5rem;
+    background-color: #F3DEBA;
+    border-radius: 5px;
 }
 .book-card {
     margin-top: 0.5rem;
-    border: 2px solid rgb(48, 44, 44);
     padding: 0.5rem;
+    background-color: #F3DEBA;
+    border-radius: 5px;
+}
+.book-card .book-cover {
+    margin-right: 10px;
 }
 .book-cover {
     height: 100px;
     float: left;
-    margin-right: 10px;
+}
+#read-more-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .read-more {
     padding: 10px;
+    background-color: #ABC4AA;
+    border: 2px solid #ABC4AA;
+    border-radius: 5px;
+    transition: all 200ms;
+}
+.read-more:hover {
+    background-color: #cfe7ce;
 }
 #scroll-to-top {
     position: fixed;
@@ -82,9 +109,19 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-color: #F1C376;
+    border: 2px solid #F1C376;
+    border-radius: 50%;
+    transition: all 200ms;
+}
+#scroll-to-top:hover {
+    background-color: #FFF4F4;
 }
 #add-book-note {
-    border: 2px solid rgb(46, 42, 42);
+    background-color: #F1C376;
+    border: 2px solid #F1C376;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,9 +129,14 @@ nav {
     height: 40px;
     width: 40px;
     margin-top: 0.5rem;
+    transition: all 200ms;
+}
+#add-book-note:hover {
+    background-color: #FFF4F4;
 }
 #isbn-entry {
-    border: 2px solid rgb(32, 31, 31);
+    background-color: #F3DEBA;
+    border-radius: 5px;
     padding: 1rem;
     gap: 10px;
 
@@ -105,10 +147,24 @@ nav {
 }
 #isbn-submit-button {
     padding: 10px;
+    background-color: #ABC4AA;
+    border: 2px solid #ABC4AA;
+    border-radius: 5px;
+    transition: all 200ms;
+}
+#isbn-submit-button:hover {
+    background-color: #cfe7ce;
 }
 #isbn-number {
     height: 30px;
     text-align: center;
+    border-radius: 5px;
+    border: 0;
+    background-color: #FFF4F4;
+}
+#isbn-number:focus {
+    outline: none;
+    background-color: #FEF7DC;
 }
 #isbn-main {
     height: 80vh;
@@ -118,7 +174,8 @@ nav {
     align-items: center;
 }
 #add-edit-main {
-    border: 2px solid rgb(35, 33, 33);
+    border-radius: 5px;
+    background-color: #F3DEBA;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,19 +196,36 @@ nav {
     resize: vertical;
     min-height: 160px;
     padding: 0.5rem;
+    border: 0;
+    border-radius: 5px;
+    background-color: #FFF4F4;
 }
 #book-rating {
     text-align: center;
     resize: none;
     padding: 0.5rem;
+    border: 0;
+    border-radius: 5px;
+    background-color: #FFF4F4;
+}
+#book-rating:focus, #preview:focus, #notes:focus {
+    outline: none;
+    background-color: #FEF7DC;
 }
 #book-info-submit {
     padding: 10px;
+    background-color: #ABC4AA;
+    border: 2px solid #ABC4AA;
+    border-radius: 5px;
+    transition: all 200ms;
+}
+#book-info-submit:hover {
+    background-color: #cfe7ce;
 }
 #basic-book-info {
     display: grid;
     grid-template-columns: 4fr 8fr;
-    border: 2px solid rgb(23, 22, 22);
+    border: 2px solid #675D50;
     border-width: 0 0 2px 0;
 }
 #img-info {
@@ -170,11 +244,26 @@ nav {
 #edit-notes, #delete-notes {
     width: 40px;
     height: 40px;
-    border: 2px solid rgb(47, 44, 44);
+    border-radius: 5px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 200ms;
+}
+#edit-notes {
+    background-color: #6AD4DD;
+    border: 2px solid #6AD4DD;
+}
+#edit-notes:hover {
+    background-color: #c2f1f5;
+}
+#delete-notes {
+    background-color: #FA7070;
+    border: 2px solid #FA7070;
+}
+#delete-notes:hover {
+    background-color: #f6a9a9;
 }
 #edit-icon, #delete-icon {
     height: 20px;
