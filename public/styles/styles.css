@@ -76,12 +76,8 @@ a:hover {
     background-color: #F3DEBA;
     border-radius: 5px;
 }
-.book-card .book-cover {
-    margin-right: 10px;
-}
 .book-cover {
-    height: 100px;
-    float: left;
+    height: 150px;
 }
 #read-more-button-container {
     display: flex;
@@ -222,18 +218,21 @@ a:hover {
 #book-info-submit:hover {
     background-color: #cfe7ce;
 }
-#basic-book-info {
+.basic-book-info {
     display: grid;
     grid-template-columns: 4fr 8fr;
     border: 2px solid #675D50;
     border-width: 0 0 2px 0;
 }
-#img-info {
+.img-info {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#text-info {
+#add-edit-main .book-cover {
+    height: 100px;
+}
+.text-info {
     text-align: center;
 }
 #button-container {
