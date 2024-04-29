@@ -76,6 +76,9 @@ a:hover {
     background-color: #F3DEBA;
     border-radius: 5px;
 }
+#website-intro, .book-card {
+    max-width: 600px;
+}
 .book-cover {
     height: 150px;
 }
@@ -179,6 +182,8 @@ a:hover {
 
     margin-top: 0.5rem;
     padding: 1rem;
+    
+    width: 600px;
 }
 #add-edit-form {
     margin-top: 0.5rem;
@@ -187,6 +192,8 @@ a:hover {
     justify-content: center;
     align-items: center;
     gap: 10px;
+
+    width: 550px;
 }
 #preview, #notes {
     resize: vertical;
@@ -195,6 +202,8 @@ a:hover {
     border: 0;
     border-radius: 5px;
     background-color: #FFF4F4;
+
+    width: 500px;
 }
 #book-rating {
     text-align: center;
@@ -203,6 +212,8 @@ a:hover {
     border: 0;
     border-radius: 5px;
     background-color: #FFF4F4;
+
+    width: 500px;
 }
 #book-rating:focus, #preview:focus, #notes:focus {
     outline: none;
@@ -266,4 +277,38 @@ a:hover {
 }
 #edit-icon, #delete-icon {
     height: 20px;
+}
+
+@media(max-width: 700px) {
+    #add-edit-main {
+        width: 500px;
+    }
+    #add-edit-form {
+        width: 450px;
+    }
+    #preview, #notes, #book-rating {
+        width: 400px;
+    }
+}
+@media(max-width: 550px) {
+    #add-edit-main {
+        width: 450px;
+    }
+    #add-edit-form {
+        width: 400px;
+    }
+    #preview, #notes, #book-rating {
+        width: 350px;
+    }
+}
+@media(max-width: 500px) {
+    #add-edit-main {
+        width: auto;
+    }
+    #add-edit-form {
+        width: auto;
+    }
+    #preview, #notes, #book-rating {
+        width: auto;
+    }
 }
