@@ -19,8 +19,7 @@ var bookData = [];
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 
-app.get("/", (req, res) => {
-	
+function refreshData(){
 	db.query("SELECT * FROM book_data", (err, result) => {
 		if (err) {
 			console.error("Error executing query", err.stack);
@@ -28,7 +27,12 @@ app.get("/", (req, res) => {
 			bookData = result.rows;			
 		}
 	});
+}
 
+refreshData();
+
+app.get("/", (req, res) => {
+	refreshData();
 	res.render("pages/index.ejs", {books: bookData});
 });
 
@@ -40,8 +44,16 @@ app.get("/add", (req, res) => {
 	res.render("partials/add_or_edit.ejs")
 });
 
-app.get("/notes", (req, res) => {
-	res.render("partials/book_notes.ejs")
+app.get("/notes/:bookId", (req, res) => {
+	let requiredBookId = parseInt(req.params.bookId);
+	let requiredBook = {};
+	for (var i=0; i<bookData.length; i++){
+		if (bookData[i].id === requiredBookId){
+			requiredBook = bookData[i];
+		}
+	}
+
+	res.render("partials/book_notes.ejs", {book: requiredBook});
 });
 
 app.listen(port, () => {

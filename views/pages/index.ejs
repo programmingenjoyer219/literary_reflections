@@ -9,15 +9,15 @@
         <% books.forEach(book => { %>
             <div class="book-card">
                 <div class="basic-book-info">
-                    <a href="" class="img-info"><img src="https://covers.openlibrary.org/b/isbn/<%= book['isbn_number'] %>-M.jpg" alt="" class="book-cover"></a>
+                    <a href="/notes/<%= book['id'] %>" class="img-info"><img src="https://covers.openlibrary.org/b/isbn/<%= book['isbn_number'] %>-M.jpg" alt="" class="book-cover"></a>
                     <div class="text-info">
-                        <a href=""><h2><%= book['book_name'] %> - by <%= book['author'] %></h2></a>
+                        <a href="/notes/<%= book['id'] %>"><h2><%= book['book_name'] %> - by <%= book['author'] %></h2></a>
                         <p>Date of upload: <%= book['date_added'] %>. How strongly I recommend it: <%= book['rating'] %>/5</p>
                     </div>
                 </div>
                 <p><%= book['preview'] %></p>
                 <div id="read-more-button-container">
-                    <button class="read-more">Read more</button>
+                    <a href="/notes/<%= book['id'] %>"><button class="read-more">Read more</button></a>
                 </div>
             </div>        
         <% }); %>
