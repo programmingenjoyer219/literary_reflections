@@ -1,0 +1,22 @@
+<%- include('header.ejs') %>
+    <main id="add-edit-main">
+        <div id="basic-book-info">
+            <div id="img-info"><img src="https://covers.openlibrary.org/b/id/13878729-M.jpg" alt="" class="book-cover"></div>
+            <div id="text-info">
+                <h4>You Can Negotiate Anything<br>- Herb Cohen</h4>
+                <p>ISBN: 1234567891234</p>
+            </div>
+        </div>
+        
+        <form action="" method="post" id="add-edit-form">
+            <label for="book-rating">Rating</label>
+            <textarea type="number" id="book-rating" name="book-rating" cols="30" rows="1"></textarea>
+            <label for="preview">Preview</label>
+            <textarea type="text" id="preview" name="preview" cols="30" rows="10"></textarea>
+            <label for="notes">Notes</label>
+            <textarea type="text" id="notes" name="notes" cols="30" rows="10"></textarea>
+            <input type="submit" value="Submit" id="book-info-submit">
+        </form>
+    </main>
+</body>
+</html>

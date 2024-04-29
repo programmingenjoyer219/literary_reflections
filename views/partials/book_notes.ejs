@@ -1,0 +1,43 @@
+<%- include('../partials/header.ejs') %>
+
+    <main id="book-notes-main">
+        <div class="book-card">
+            <a href=""><img src="https://covers.openlibrary.org/b/id/13878729-M.jpg" alt="" class="book-cover"></a>
+            <h3>You Can Negotiate Anything<br>- Herb Cohen</h3>
+            <p>Date read: 2023-08-02. How strongly I recommend it: 10/10</p>
+            <p>Everything is negotiable. Challenge authority. You have the power in any situation. This is how to realize it and use it. A must-read classic from 1980 from a master negotiator. My notes here aren’t enough because the little book is filled with so many memorable stories — examples of great day-to-day moments of negotiation that will stick in your head for when you need them. (I especially loved the one about the power of the prisoner in solitary confinement.) So go buy and read the book. I’m giving it a 10/10 rating even though the second half of the book loses steam, because the first half is so crucial.</p>
+            <h2>My Notes</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dapibus auctor urna, ut finibus nisi condimentum vel. Curabitur convallis quam sed diam sollicitudin, ut auctor augue suscipit. Cras pellentesque ante nibh, ut pharetra ligula mollis vel. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec dictum vel libero in scelerisque. In congue ante eget elit pulvinar semper. Cras aliquam, ipsum et blandit consectetur, est magna semper risus, in tempor tellus ex id tellus. Sed auctor scelerisque neque, volutpat consequat leo malesuada at. Cras molestie justo in ligula convallis, eu pretium leo porttitor. Proin ex dolor, convallis sit amet pretium in, malesuada id ipsum. Mauris suscipit nunc sit amet dui interdum viverra. Aenean eu lorem sit amet odio tempor dictum et vitae nulla. Duis scelerisque, elit lacinia convallis interdum, nulla dui vestibulum neque, ut rutrum diam dolor id enim.
+
+                Curabitur maximus, odio at suscipit condimentum, ex sem pretium erat, vitae porttitor est mi eu sem. Mauris bibendum mi sed nisl blandit, non lobortis est pretium. Nam facilisis ligula consectetur, mollis justo at, rhoncus arcu. Donec sit amet enim sit amet mi dictum venenatis ut vel tellus. Sed viverra lorem vel libero blandit, et dignissim odio facilisis. Curabitur quis magna a nulla convallis venenatis. Quisque sed velit sed diam lacinia dignissim ac quis leo.
+                
+                Donec vitae neque purus. Mauris suscipit eu enim et tristique. Ut consequat euismod pharetra. Suspendisse potenti. Maecenas et tortor eu nibh elementum iaculis eget egestas eros. Aenean porttitor leo orci, sit amet fermentum tortor accumsan non. Sed quis mauris nisl. Quisque efficitur odio a mollis laoreet. Sed eu aliquam lectus, at euismod turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                
+                Vestibulum eget bibendum elit. Mauris suscipit turpis non felis pharetra, sit amet euismod tortor convallis. Aliquam vel ipsum arcu. Praesent condimentum vulputate erat. Integer ullamcorper magna a lacus interdum, eu accumsan lectus efficitur. Proin aliquam enim dui, in imperdiet lectus eleifend quis. Pellentesque gravida dui eget mattis varius. Nulla semper, odio a ullamcorper hendrerit, nisl massa tempor mi, eget consectetur est tortor vitae quam. Curabitur accumsan dui mauris, id volutpat augue volutpat a.
+                
+                Aenean sollicitudin porttitor fermentum. Aenean sapien est, varius ut gravida a, lacinia quis est. Morbi mollis sem purus, vitae viverra ante tempus vitae. Morbi dignissim purus eros, sed feugiat magna pharetra a. Sed sollicitudin tristique elit, eget congue quam interdum vitae. Donec sollicitudin efficitur nunc, nec gravida neque euismod ut. Integer quam elit, scelerisque sed vulputate ut, ultricies nec ligula. Vestibulum felis erat, tristique a lacus a, semper elementum nibh. Ut maximus diam vel volutpat gravida. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum et mattis ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            
+                <div id="button-container">
+                    <button id="edit-notes"><img src="assets/edit-icon.svg" alt="" id="edit-icon"></button>
+                    <button id="delete-notes"><img src="assets/delete-icon.svg" alt="" id="delete-icon"></button>
+                </div>
+        </div>
+
+        <button id="scroll-to-top"><img src="assets/arrow-upward-icon.svg" alt="" id="up-arrow"></button>
+    </main>
+
+    <script>
+        const buttonScrollToTop = document.querySelector("#scroll-to-top");
+        
+        if (screen.width < 767){
+            buttonScrollToTop.addEventListener("touchstart", () => {
+            window.scrollTo(0, 0);
+            });
+        } else {
+            buttonScrollToTop.addEventListener("click", () => {
+            window.scrollTo(0, 0);
+            });
+        }
+    </script>
+</body>
+</html>
