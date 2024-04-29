@@ -14,11 +14,22 @@ const db = new pg.Client({
 
 db.connect();
 
+var bookData = [];
+
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 
 app.get("/", (req, res) => {
-	res.render("pages/index.ejs");
+	
+	db.query("SELECT * FROM book_data", (err, result) => {
+		if (err) {
+			console.error("Error executing query", err.stack);
+		}else {
+			bookData = result.rows;			
+		}
+	});
+
+	res.render("pages/index.ejs", {books: bookData});
 });
 
 app.get("/isbn", (req, res) => {

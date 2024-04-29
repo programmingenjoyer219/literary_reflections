@@ -34,16 +34,9 @@
 
     <script>
         const buttonScrollToTop = document.querySelector("#scroll-to-top");
-        
-        if (screen.width < 767){
-            buttonScrollToTop.addEventListener("touchstart", () => {
+        buttonScrollToTop.addEventListener("click", () => {
             window.scrollTo(0, 0);
-            });
-        } else {
-            buttonScrollToTop.addEventListener("click", () => {
-            window.scrollTo(0, 0);
-            });
-        }
+        });
     </script>
 </body>
 </html>

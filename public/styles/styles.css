@@ -234,6 +234,7 @@ a:hover {
     grid-template-columns: 4fr 8fr;
     border: 2px solid #675D50;
     border-width: 0 0 2px 0;
+    padding: 0.25rem;
 }
 .img-info {
     display: flex;
