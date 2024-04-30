@@ -32,7 +32,6 @@ function refreshData() {
 refreshData();
 
 app.get("/", (req, res) => {
-	refreshData();
 	res.render("pages/index.ejs", { books: bookData });
 });
 
@@ -115,7 +114,7 @@ app.post("/add/:isbnNum", (req, res) => {
 					}
 				}
 			);
-
+			refreshData();
 			res.redirect("/");
 		})
 		.catch(function (error) {
@@ -153,7 +152,7 @@ app.get("/delete/:bookId", (req, res) => {
 			}
 		}
 	);
-
+	refreshData();
 	res.redirect("/");
 });
 
@@ -188,6 +187,7 @@ app.post("/edit/:bookId", (req, res) => {
 				console.log(
 					`Book with id: ${bookToEditId} has been edited successfully`
 				);
+				refreshData();
 				res.redirect("/");
 			}
 		}
@@ -196,6 +196,23 @@ app.post("/edit/:bookId", (req, res) => {
 
 app.get("/oops", (req, res) => {
 	res.render("pages/oops.ejs");
+});
+
+app.get("/sort/:sortType", (req, res) => {
+	let sortType = req.params.sortType;
+	let sqlCommand = `SELECT * FROM book_data ORDER BY ${sortType} DESC`;
+	if (sortType == 'book_name'){
+		sqlCommand = `SELECT * FROM book_data ORDER BY ${sortType} ASC`;
+	}
+	db.query(sqlCommand, (err, result) => {
+		if (err) {
+			console.error("Error executing query", err.stack);
+			res.redirect("/oops");
+		} else {
+			bookData = result.rows;
+			res.redirect("/");
+		}
+	});
 });
 
 app.listen(port, () => {
