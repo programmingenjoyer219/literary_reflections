@@ -32,6 +32,25 @@ function refreshData() {
 refreshData();
 
 app.get("/", (req, res) => {
+	let searchQuery = req.query.search;
+
+	if (searchQuery != undefined) {
+		db.query(
+			"SELECT * FROM book_data WHERE book_name ILIKE '%' || $1 || '%' OR author ILIKE '%' || $1 || '%' OR isbn_number = $1",
+			[searchQuery],
+			(err, result) => {
+				if (err) {
+					console.error("Error executing query", err.stack);
+					res.redirect("/oops");
+				} else {
+					bookData = result.rows;
+				}
+			}
+		);
+	}else {
+		refreshData();
+	}
+
 	res.render("pages/index.ejs", { books: bookData });
 });
 
@@ -63,7 +82,10 @@ app.get("/add/:isbnNum", (req, res) => {
 				notes: "",
 			};
 			console.log(requiredBook);
-			res.render("partials/add_or_edit.ejs", { book: requiredBook, postRoute: `/add/${isbnNum}` });
+			res.render("partials/add_or_edit.ejs", {
+				book: requiredBook,
+				postRoute: `/add/${isbnNum}`,
+			});
 		})
 		.catch(function (error) {
 			console.log(error);
@@ -91,7 +113,7 @@ app.post("/add/:isbnNum", (req, res) => {
 			let day = d.getDate();
 			bookToAdd["date_added"] = `${year}-${month}-${day}`;
 
-			var lastId = bookData[bookData.length-1].id;
+			var lastId = bookData[bookData.length - 1].id;
 
 			db.query(
 				"INSERT INTO book_data VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
@@ -164,7 +186,10 @@ app.get("/edit/:bookId", (req, res) => {
 			bookToEdit = bookData[i];
 		}
 	}
-	res.render("partials/add_or_edit.ejs", { book: bookToEdit, postRoute: `/edit/${bookToEditId}` });
+	res.render("partials/add_or_edit.ejs", {
+		book: bookToEdit,
+		postRoute: `/edit/${bookToEditId}`,
+	});
 });
 
 app.post("/edit/:bookId", (req, res) => {
@@ -201,7 +226,7 @@ app.get("/oops", (req, res) => {
 app.get("/sort/:sortType", (req, res) => {
 	let sortType = req.params.sortType;
 	let sqlCommand = `SELECT * FROM book_data ORDER BY ${sortType} DESC`;
-	if (sortType == 'book_name'){
+	if (sortType == "book_name") {
 		sqlCommand = `SELECT * FROM book_data ORDER BY ${sortType} ASC`;
 	}
 	db.query(sqlCommand, (err, result) => {
