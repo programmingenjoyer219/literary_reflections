@@ -145,6 +145,7 @@ app.get("/delete/:bookId", (req, res) => {
 		(err, result) => {
 			if (err) {
 				console.error("Error executing query", err.stack);
+				res.redirect("/oops");
 			} else {
 				console.log(
 					`Book with id: ${bookToDeleteId} has been deleted successfully`
@@ -182,15 +183,19 @@ app.post("/edit/:bookId", (req, res) => {
 		(err, result) => {
 			if (err) {
 				console.error("Error executing query", err.stack);
+				res.redirect("/oops");
 			} else {
 				console.log(
 					`Book with id: ${bookToEditId} has been edited successfully`
 				);
+				res.redirect("/");
 			}
 		}
 	);
+});
 
-	res.redirect("/");
+app.get("/oops", (req, res) => {
+	res.render("pages/oops.ejs");
 });
 
 app.listen(port, () => {

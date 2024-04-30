@@ -279,6 +279,35 @@ a:hover {
 #edit-icon, #delete-icon {
     height: 20px;
 }
+#oops-main {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#oops-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 4px solid #D0E7D2;
+
+    background-color: #B0D9B1;
+}
+#oops-page-home-button {
+    padding: 10px;
+    background-color: #ABC4AA;
+    border: 2px solid #ABC4AA;
+    border-radius: 5px;
+    transition: all 200ms;
+}
+#oops-page-home-button:hover {
+    background-color: #cfe7ce;
+}
 
 @media(max-width: 700px) {
     #add-edit-main {
