@@ -56,6 +56,19 @@ app.get("/notes/:bookId", (req, res) => {
 	res.render("partials/book_notes.ejs", {book: requiredBook});
 });
 
+app.get("/delete/:bookId", (req, res) => {
+	var bookToDeleteId = parseInt(req.params.bookId);
+	db.query("DELETE FROM book_data WHERE id=$1", [bookToDeleteId], (err, result) => {
+		if (err) {
+			console.error("Error executing query", err.stack);
+		}else {
+			console.log(`Book with id: ${bookToDeleteId} has been deleted successfully`);
+		}
+	});
+
+	res.redirect("/");
+});
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });

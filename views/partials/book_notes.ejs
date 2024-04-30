@@ -17,8 +17,8 @@
                 <p><%= book['notes'] %></p>
                 
                     <div id="button-container">
-                        <button id="edit-notes"><img src="assets/edit-icon.svg" alt="" id="edit-icon"></button>
-                        <button id="delete-notes"><img src="assets/delete-icon.svg" alt="" id="delete-icon"></button>
+                        <a href="/edit/<%= book['id'] %>"><button id="edit-notes"><img src="assets/edit-icon.svg" alt="" id="edit-icon"></button></a>
+                        <a href="/delete/<%= book['id'] %>"><button id="delete-notes"><img src="assets/delete-icon.svg" alt="" id="delete-icon"></button></a>
                     </div>
             </div>
     
