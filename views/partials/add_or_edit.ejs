@@ -1,5 +1,5 @@
 <%- include('header.ejs') %>
-    <% if (locals.book){ %>
+    <% if (locals.book && locals.postRoute){ %>
 
         <div id="add-edit-main">
             <div class="basic-book-info">
@@ -10,9 +10,9 @@
                 </div>
             </div>
             
-            <form action="" method="post" id="add-edit-form">
+            <form action="<%= postRoute %>" method="post" id="add-edit-form">
                 <label for="book-rating">Rating</label>
-                <textarea type="number" id="book-rating" name="book-rating" cols="30" rows="1"><%= book['rating'] %></textarea>
+                <textarea type="number" id="book-rating" name="rating" cols="30" rows="1"><%= book['rating'] %></textarea>
                 <label for="preview">Preview</label>
                 <textarea type="text" id="preview" name="preview" cols="30" rows="10"><%= book['preview'] %></textarea>
                 <label for="notes">Notes</label>
