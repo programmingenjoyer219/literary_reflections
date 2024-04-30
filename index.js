@@ -20,7 +20,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 
 function refreshData(){
-	db.query("SELECT * FROM book_data", (err, result) => {
+	db.query("SELECT * FROM book_data ORDER BY id ASC", (err, result) => {
 		if (err) {
 			console.error("Error executing query", err.stack);
 		}else {
@@ -46,7 +46,7 @@ app.get("/add", (req, res) => {
 
 app.get("/notes/:bookId", (req, res) => {
 	let requiredBookId = parseInt(req.params.bookId);
-	let requiredBook = {};
+	let requiredBook;
 	for (var i=0; i<bookData.length; i++){
 		if (bookData[i].id === requiredBookId){
 			requiredBook = bookData[i];
@@ -58,11 +58,38 @@ app.get("/notes/:bookId", (req, res) => {
 
 app.get("/delete/:bookId", (req, res) => {
 	var bookToDeleteId = parseInt(req.params.bookId);
+
 	db.query("DELETE FROM book_data WHERE id=$1", [bookToDeleteId], (err, result) => {
 		if (err) {
 			console.error("Error executing query", err.stack);
 		}else {
 			console.log(`Book with id: ${bookToDeleteId} has been deleted successfully`);
+		}
+	});
+
+	res.redirect("/");
+});
+
+app.get("/edit/:bookId", (req, res) => {
+	var bookToEditId = parseInt(req.params.bookId);
+	var bookToEdit;
+	for (var i=0; i<bookData.length; i++){
+		if (bookData[i].id === bookToEditId){
+			bookToEdit = bookData[i];
+		}
+	}
+	res.render("partials/add_or_edit.ejs", {book: bookToEdit});
+});
+
+app.post("/edit/:bookId", (req, res) => {
+	var bookToEditId = req.params.bookId;
+	var bookToEdit = req.body;
+
+	db.query("UPDATE book_data SET rating=$1, preview=$2, notes=$3 WHERE id=$4", [parseFloat(bookToEdit['book-rating']), bookToEdit['preview'], bookToEdit['notes'], bookToEditId], (err, result) => {
+		if (err) {
+			console.error("Error executing query", err.stack);
+		}else {
+			console.log(`Book with id: ${bookToEditId} has been edited successfully`);
 		}
 	});
 
