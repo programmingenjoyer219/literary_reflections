@@ -1,14 +1,17 @@
 import express from "express";
 import pg from "pg";
 import axios from "axios";
+import dotenv from "dotenv";
 
 const app = express();
 const port = 3000;
+
+dotenv.config();
 const db = new pg.Client({
 	user: "postgres",
 	host: "localhost",
 	database: "book_notes",
-	password: "yuganshu_postgres@789",
+	password: process.env.POSTGRESQL_PASSWORD,
 	port: 5432,
 });
 
