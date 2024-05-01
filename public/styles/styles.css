@@ -39,6 +39,12 @@ a:hover {
 #website-logo, #up-arrow, #plus-icon {
     height: 40px;
 }
+#website-logo {
+    transition: all 200ms;
+}
+#website-logo:hover {
+    opacity: 60%;
+}
 #search-icon {
     height: 20px;
 }
