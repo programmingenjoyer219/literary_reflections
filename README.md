@@ -13,25 +13,16 @@ Database Description:
 
 	SQL for table creation:
 
-	CREATE TABLE book_data(
-
- 	id SERIAL PRIMARY KEY,
-	
- 	isbn_number TEXT,
- 	
-	book_name TEXT,
-	
- 	author TEXT,
- 	
-	rating FLOAT,
-	
- 	preview TEXT,
- 	
-	notes TEXT,
-	
- 	date_added DATE
-	
- 	);
+		CREATE TABLE book_data(
+	 	id SERIAL PRIMARY KEY,
+	 	isbn_number TEXT,
+		book_name TEXT,
+	 	author TEXT,
+		rating FLOAT,
+	 	preview TEXT,
+		notes TEXT,
+	 	date_added DATE
+	 	);
 
 Use the following lines of code in your terminal to run the web-app:
 
