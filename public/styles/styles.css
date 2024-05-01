@@ -31,6 +31,7 @@ a {
     color: #597E52;
     text-decoration: none;
     transition: all 500ms;
+    font-weight: bold;
 }
 a:hover {
     text-decoration: underline;
