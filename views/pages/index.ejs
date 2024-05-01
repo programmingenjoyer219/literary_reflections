@@ -14,7 +14,7 @@
                     <div class="text-info">
                         <a href="/notes/<%= book['id'] %>"><h2><%= book['book_name'] %> - by <%= book['author'] %></h2></a>
                         <p>Date of upload: <%= new Date(book['date_added']).toDateString().slice(4) %></p>
-                        <p>How strongly I recommend it: <%= book['rating'] %>/5</p>
+                        <p>I'll give it a rating of: <%= book['rating'] %>/5</p>
                     </div>
                 </div>
                 <p><%= book['preview'] %></p>
@@ -33,7 +33,7 @@
         const buttonScrollToTop = document.querySelector("#scroll-to-top");
         buttonScrollToTop.addEventListener("click", () => {
             window.scrollTo(0, 0);
-        });        
+        });
     </script>
 </body>
 </html>
