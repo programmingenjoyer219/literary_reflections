@@ -9,6 +9,8 @@
                     <p>ISBN: <%= book['isbn_number'] %></p>
                 </div>
             </div>
+
+            <p id="instruction">The paragraphs below, will be rendered as HTML. For the separation between the paragraphs to be reflected, add the following code: <em><%= '<br><br>' %></em></p>
             
             <form action="<%= postRoute %>" method="post" id="add-edit-form">
                 <label for="book-rating">Rating</label>
